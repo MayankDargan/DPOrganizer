@@ -3,7 +3,10 @@ import {
   FETCH_DECK_BEGIN,
   FETCH_DECK_SUCCESS,
   FETCH_DECK_FAILURE,
-} from '../actions/DeckAction';
+  FETCH_DECK_CARDS_BEGIN,
+  FETCH_DECK_CARDS_SUCCESS,
+  FETCH_DECK_CARDS_FAILURE,
+} from '../actions/fetchDeck';
 
 const initialState = {
   items: [],
@@ -23,14 +26,24 @@ export default function DeckReducer(
         loading: true,
         error: null,
       };
-
+    case FETCH_DECK_CARDS_BEGIN:
+      return {
+        ...state,
+        loading: true,
+        error: null,
+      };
     case FETCH_DECK_SUCCESS:
       return {
         ...state,
         loading: false,
-        items: action.cards,
+        items: action.deck,
       };
-
+    case FETCH_DECK_CARDS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        items: action.deck,
+      };
     case FETCH_DECK_FAILURE:
       return {
         ...state,
@@ -38,7 +51,13 @@ export default function DeckReducer(
         error: action.payload.error,
         items: [],
       };
-
+    case FETCH_DECK_CARDS_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.error,
+        items: [],
+      };
     default:
       return state;
   }

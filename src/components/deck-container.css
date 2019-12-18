@@ -6,3 +6,12 @@
     margin-left: 10px;
     border: 1px solid black;
 }
+
+.deck-container{
+    height: 50vh;
+}
+
+img{
+    height: 2vh;
+    width: 1vh;
+}

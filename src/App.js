@@ -1,3 +1,4 @@
+/* eslint-disable require-jsdoc */
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -8,9 +9,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
   }
-  componentDidMount() {
 
-  }
   render() {
     return (
       <div className="App">
